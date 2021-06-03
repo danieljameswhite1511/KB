@@ -1,0 +1,98 @@
+AngularJS: https://angularjs.org/
+
+Services: https://docs.angularjs.org/api
+ -$scope
+ -$log
+ -$filter: filters strings
+ -$stateProvider
+ -$urlRouteProvider
+ -$locationProvider
+ -$qprovider
+ 
+ 
+#$scope
+The scope is the piece between the view and the controller, the scope contains and defines the data that goes back and forth between the view and the controller
+ - You can add properties and methods to the scope
+ - scope is a service of the core angular modules
+ 
+Modules
+
+Apps
+
+Contollers
+
+#Dependency Injection in AngularJS
+ - 1) angular looks at the list of arguments and if it finds one that is part of the framework it injects it, so names must be typed correctly or it won't work.
+ - 2) this is the method that should be used in order to not break it with minification, pass values to a controller with an array, the position matters in the case.
+ 
+ #Scope and interpolation
+ interpolation, combining strings and placeholders
+ 
+ #Directives and two way data binding
+  - A directive is an instruction to angularJs to manipulate the dom
+   - add a class, show, hide and so on
+   - the ng-model is used to create a two way binding in forms
+  
+  ##js event loop - in the back ground angular uses the event loop to achieve two way binding
+   - angular adds event listeners and extends the event loop by adding the angular context
+    - when something is added to the scope angular adds a watcher with old and new value
+	 - the digest loop runs and checks to see if something has changed in the digest cycle
+	  - if anything has changed, anything that references it is updated including the dom and any variables
+	   - So everything in the angular js context is handled, if it is not in the context it can be managed with $scope.apply(function(){code here})
+	     this applies to things like settimeout and external libraies, for settimeout use the $timeout service 
+		 
+ ##Common directives
+  - ng-model
+  - ng-controller
+  - ng-if
+  - ng-show
+  - ng-hide
+  - ng-class={class: condition, class: condition, }
+  - ng-repeat="item in items"
+  - ng-click
+  -ng-cloak hides an element untilit has been processed
+  
+   
+
+  ##Custom directives
+   - js normalizes attribute names like custom-attribute-name to customAttributeName, this is called variable name normailzation
+    - when using custome directives, the name e.g. custom-attribute-name is used as a custom HTML element
+		- angular will associated the custome html element custom-attribute-name to a variable name customAttributeName
+		- you can also use a div with a custome attribute e.g. <div custom-attribite-name></div> and angular will recognise this as  a directive
+   - isolating the scope
+   - Compile and link
+   - in the diercitve declaration you can set replace: true and thsi will render only the html within the directive and not the custom element wrapper
+    Attributes/properties
+		- replace, true/false replaces the custom element with the html from teh templates
+		- restrict: set how directives are used e.g. only in a div, or as a custome element, usally set as the first propertys so it is obvious, 
+			- uses single letter shorthand restrict: 'EA', meand element and attribute, this is the default setting so no need to set if this is the usage AECM means attibute, element, class and comment
+			
+	###Scope: @ = and other obtuse symbols
+	 - by default the directive will inherit the scope of the controller/page that it is nested in
+	  - you can access the object and properties of the parent scope, parent page/parent template
+	   - this is good but it is also something that could cause issues, this is a resuable component and could result in behavious that isn't wanted e.g. changing values in teh parent scope.
+	    - Angularjs provides a method to isolate the model part of the directive: Isolated scope/isolating the scope
+  
+  #Single page applications and the hash
+   - Anchor tags use the hash and fragment identifier to get to a location/fragment in an html document
+   - there is an eventlistener called HashChange that is fired when the hash changes
+   - this change occurs when the anchor/bookmark is clicked, and the value can be accessed with window.location.hash
+   - the location doesn't have to exist for the event to fire
+   - in js we can look at the value of the hash, and make decisions based on that
+    - thsi concept of using teh fragment identifier from the hash, is the fundamental key to sigle page applications
+	 - a spa only does an http request once to get the index page and associated files, the asynchronous requests are made to the server to retrieve data
+	  - angular js wraps this up and makes it available in order to create single page applications
+	  
+  #Routing, templates and controllers. 
+   - $location
+   - ng-view is the container for html files/views
+   
+   #UIRouting
+    - 
+   
+   #Singleton
+	- the one and only copy of an object
+	- angular js services are implemented as singletons
+	 - this includes $scope but each contoller has it's own child scope that inherit from the root $scope object
+	 
+	
