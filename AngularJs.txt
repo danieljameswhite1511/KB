@@ -13,7 +13,7 @@ Services: https://docs.angularjs.org/api
 #$scope
 The scope is the piece between the view and the controller, the scope contains and defines the data that goes back and forth between the view and the controller
  - You can add properties and methods to the scope
- - scope is a service of the core angular modules
+ - $scope is a service of the core angular modules
  
 Modules
 
@@ -23,7 +23,9 @@ Contollers
 
 #Dependency Injection in AngularJS
  - 1) angular looks at the list of arguments and if it finds one that is part of the framework it injects it, so names must be typed correctly or it won't work.
- - 2) this is the method that should be used in order to not break it with minification, pass values to a controller with an array, the position matters in the case.
+ - 2) Parameters can be passed individually or in an array
+    - If paramaters/variable/arguments are passed individually mimification will break teh dependency injection with the new minified names.
+       	in order to not break it with minification, pass values to a controller with an array as the array values will not be affected by minification, the position           matters in the case.
  
  #Scope and interpolation
  interpolation, combining strings and placeholders
