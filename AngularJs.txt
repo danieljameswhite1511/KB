@@ -13,7 +13,7 @@ Services: https://docs.angularjs.org/api
 #$scope
 The scope is the piece between the view and the controller, the scope contains and defines the data that goes back and forth between the view and the controller
  - You can add properties and methods to the scope
- - scope is a service of the core angular modules
+ - $scope is a service of the core angular modules
  
 Modules
 
@@ -23,7 +23,9 @@ Contollers
 
 #Dependency Injection in AngularJS
  - 1) angular looks at the list of arguments and if it finds one that is part of the framework it injects it, so names must be typed correctly or it won't work.
- - 2) this is the method that should be used in order to not break it with minification, pass values to a controller with an array, the position matters in the case.
+ - 2) Parameters can be passed individually or in an array
+    - If paramaters/variable/arguments are passed individually mimification will break teh dependency injection with the new minified names.
+       	in order to not break it with minification, pass values to a controller with an array as the array values will not be affected by minification, the position           matters in the case.
  
  #Scope and interpolation
  interpolation, combining strings and placeholders
@@ -70,7 +72,7 @@ Contollers
 	###Scope: @ = and other obtuse symbols
 	 - by default the directive will inherit the scope of the controller/page that it is nested in
 	  - you can access the object and properties of the parent scope, parent page/parent template
-	   - this is good but it is also something that could cause issues, this is a resuable component and could result in behavious that isn't wanted e.g. changing values in teh parent scope.
+	   - this is good but it is also something that could cause issues, this is a resuable component and could result in behavious that isn't wanted e.g. changing values in the parent scope.
 	    - Angularjs provides a method to isolate the model part of the directive: Isolated scope/isolating the scope
   
   #Single page applications and the hash
@@ -79,7 +81,7 @@ Contollers
    - this change occurs when the anchor/bookmark is clicked, and the value can be accessed with window.location.hash
    - the location doesn't have to exist for the event to fire
    - in js we can look at the value of the hash, and make decisions based on that
-    - thsi concept of using teh fragment identifier from the hash, is the fundamental key to sigle page applications
+    - thsi concept of using teh fragment identifier from the hash, is the fundamental key to single page applications
 	 - a spa only does an http request once to get the index page and associated files, the asynchronous requests are made to the server to retrieve data
 	  - angular js wraps this up and makes it available in order to create single page applications
 	  
@@ -95,6 +97,7 @@ Contollers
 	- angular js services are implemented as singletons
 	 - this includes $scope but each contoller has it's own child scope that inherit from the root $scope object
 	 
+<<<<<<< HEAD
 	
 
   #Bootstrapping AngularJS
@@ -109,3 +112,12 @@ Contollers
   
 #New angularjs project
  - app/lib/
+=======
+#Create a directive
+Add route to app.js file
+ - 
+Add controller .js file
+ - 
+Add html file
+ - add <div ng-controller="example.controller.name">HTML content here</div>
+>>>>>>> cc1ccdae6718cc77e065e9794d23c37cc76955cd
