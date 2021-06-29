@@ -1,0 +1,243 @@
+JavaScript
+
+recommended libraries
+ - moment.js
+ - underscore.js
+
+#Syntax Parsers
+
+ - Interpreters and compilers
+ - Compiled down to machine code
+
+#Execution Contexts
+ - A wrapper to help manage the code that is running
+ - Creation
+	- Execution context is created 'Creation Phase', create global object
+		- Then sets up memory space for Variables and functions(Hoisting), functions are stored in thier entirity and variables are stored but as undefined until the execution phase, during the execution phase varaibles are assigned thier values.
+			all vairables in javaScript are initially set to undefined
+			- Execution phase, this is when variable assignments are set
+ - Hoisting
+	- Before code is executed Memory space is allocated for variables and functions, this is known as hoisting
+
+#Lexical Environments
+ - Where code written is physically and what surronds it, this is important for the compiler
+
+
+#Engines:
+
+Spider Monkey
+Chrome: V8
+
+
+
+Name value pairs and objects
+
+An object is a collection of name value pairs at it's simplest level
+
+#The global environment and the global object
+
+js code is run inside an execution context
+
+the global object creates a variable called 'this', thes are created by the js engine
+
+Each window has it's own global execution context, the window object this refers to the window object you can also refer to window to get the global object
+in js global means not inside a function
+Functions and variables in the code will be attached to the global objet, you can see these in the console with this.<name here>
+
+This is also a link to the 'Outer Environment'
+
+#Scope chain
+This refers to the execution stack, references not in the current context will look to the outer reference until it finds the variable t is looking for.
+
+#let
+Block scoping, means the variable is only available in the current scope of the code block, it is in memory but can't be accessed outside of that block scope.
+
+#Event queue
+ - Event loop is the continuous check to teh event queue
+ - Events are checked after the execution stack is completed
+	- This means event listeners such as click
+	
+	
+#Dynamic typing
+Javascript is dynamically typed
+	- vairable types are set during execution
+	
+#types
+There are six primitive types(single value, not an object)
+ - undefined
+ - null
+ - boolean
+ - number(floating point number)
+ - string
+ - symbol(es6 only )
+ 
+ #Operators: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+ An operator is a syntactically different function using infix notation that takes two parameters and returns a result.
+
+ &&
+ ||
+ +
+ -
+ =
+ .
+ ! Unary operator(takes one parameter/argument)
+ Comparison operators
+ ===
+ ==
+ !===
+ !==
+ > binary operator(takes two parameters/arguments)
+ <
+ 
+ ternary operator(takes three parameters/arguments)
+ object.is
+ 
+ #Coercion
+ Converting a value from one type to another
+ 
+ #Functions and objects
+ Objects can have primitives(properties)
+ Objects canb contain other objects
+ When function sits inside an object it is referred to as a method
+ These sit in the computers memory
+ 
+ Computed member access operator = []
+ property accessor = person["propertyName"]="Dan";
+ 
+ #the  dot operator(member access)
+ 
+ the dot is an operator / function e.g. person.firstname
+ 
+ #Object literals
+ var person = {}; is the same and var person = new Object();
+ in js there is often more than one way of doing something
+  - 
+ 
+ #Faking namespaces
+ A name space is a container, js doesn't have namespaces
+ 
+ #Json (Javascript object notation)
+  - JSON is inspired by Object literal syntax
+  - properties have to be warpped in quotes
+  - json is valid object literal syntax
+  - JSON.Stringify convert object to json string
+  - JSON.Parse convert JSON string to js object
+  
+  
+  #function
+  functions are objects
+  functions can be anonymous
+  functions have properties as they are objects
+  the code is held in the function object property
+  
+  First class functions
+   - you can do with functions what you can do with other types
+   - you can assign a function so a variable
+   - pass a function as a parameters
+   - asign variables and properties to it
+   
+   Function statements and function expressions
+   
+ #Functional programming
+ 
+ #Expression
+ In programming an expression is a unit of code that results in a value
+ statements on the other hand just do work, like if, case, for each, do until, do while
+ 
+ #by value by reference
+ This is referring to variables
+  - By Reference 
+	- if value is an object Reference is to a location in memory so if a=b the a and b point to the same location in memory, no new object is created no copy it just point to the same reference in memory
+		if you update a this updates b and vice versa.
+  - By value
+	- A primitive value variable type when set/applies to another variable e.g. a=b b will be a copy of a in memory with a differnt address/location so two spots in memory
+	
+	in some languages you can decide to pass data by value or by reference but it's all primitives are passed by value and all objects are passed by reference
+  
+ 
+   
+   ##Arrays
+   An array is a collection
+   []= array literal
+   var arr = new Array(); or var arr = [];
+   Because js id dynamic an array can hold types of anything, even mix and match
+   
+   #iife: Immediately invoked function expression
+   Used in frameworks to isolate code.
+   
+   #Closures
+    - Enures access to the outer references for a function so the scope chain remains in tact
+	- This uses the execution context of the function that remains in memory after the functionand been taken off teh stack??
+	- Later versios of js can use the let keyword to access a block scope|(code block, e.g. iterative executions of for loop context for each execution)
+	- So outer references are collected form the closure of the execution context, each function has it's own execution context, 
+	  the closure is created automatically by the js engine and maintains the scope chain and is the execution context of the function stored in memory to be accessed by other functions..
+	- The closure is teh in memory exection context of the function that was executed to be accessed by the inner function, this is part of the scope chain and is a language feature and is fundamental to how JavaScript works.
+	- This essentially creates an in memory context container that can be accessed by teh inner functions to retrieve variables/data from teh previously executed parent functions.
+	- This allows you to create functions from other functions
+	
+	#Closures and callbacks
+	 - setTimeout and jquery events use closures.
+		- Set timout uses first class functions, function expressions, closures and callback
+	 
+	 
+	#Function fatories
+	 - A function that makes or returns othe rthings for you, e/g/ a function
+	 - This utilises closures to create functions from functions by accessing the closure(inmemory execution context of parent functions) 
+	   and passing variables in the state they were in when executed after they are removed form teh execution stack.
+   
+   #Call, apply and bind
+   
+   #Prototypal inheritance
+    - Reflection
+	- Extend
+#For in
+- this will loop through the properties og an object
+- Used in reflection and extend
+- don't use for in with arrays, arrays are objects too and teh items are added properties, any extra properties added to teh prototype will also be returned, use a standard for loop.
+
+#Building objects
+ - Object literal syntax
+ - function constructors, uses the new keyword to create an empty object and is a normal function and is used to add properties to the new empty object.
+ - the prototype property is only used when using new and a object constructor function
+ - You can add methods to the prototype and these will be available to instances of the object via teh prototype chain, it saves memory to add methods to teh prototype as the prototype is created once, 
+   if the methods are created on the object itself then there will be a copy of these in memory for all instances of that object
+ - Instances of an object have access to the base Objects prototype, so the prototype seen on the instance is the prototype of the base object
+ - The new keyword creates a new empty object, when the execution context is run it points the this object to the new object and if nothing is returned explicitly it returns the new object with 
+    the properties/methods(best to add these to the prototype though) set within that constructor function
+ - The new keyword was only introduced to try and get Java developers to use it, and it is called JavaScript for teh same reason
+ - Use Pascal case for constructor functions as a convention
+ 
+ ##Built in function constructors
+ These have a protoType that gives access to methods such as length, indexOf, toFixed
+ The Number, Date & String functions have a prototype that has methods that can then be applied to the primitive value that is boxed in the Object created by the constructor function.
+ When using constructor functions you are creating new objects
+  - var date = new Date('01/01/2020')
+  - var a = new Number(3)
+  - var b = new String('Dan');
+	- b.indexOf()
+	
+
+ You can add/extend these constructor functions by adding to the functions prototype e.g.
+	- String.prototype.isLengthGreaterThanLimit = function(limit){
+			return this.length > limit;
+	}
+	All strings now have access to this method, and this is the power of prototypal inheritance
+	Remember this is for use with constructor functions using the prototype and prototypal inheritance.
+	Many frameworks use this to add features and extend thi
+	js will automaitcally create an object for a string when teh . operator is used, but not for numbers, for numbers use new Number(3) to create the object and get access to the prototype
+	generally it is not good practice to use built in constructor functions for hndling primitives as they ar eno longer a primitive they are an object and thi scan cause issues with coercion
+	Use literals and the actual vales in stead and only use the function is totally necessary
+	
+	##Object.create and pure prototypal inheritance
+	js uses prototypal inheritance and not classic inheritance like other languages that use classes.
+	 - This is the simplest way of creating and using objects as it isn't trying to mimic classical inheritance
+	 - Object.create is a newer feature, to get aroung this use a polyfill
+	
+	##es6 Classes
+	 - uses the class and extends and constructor, keywords, it's still an object unlike other languages where an object is an instance of a class.
+	 - this is just syntax, it's just another way of creating objects it deosn't change how they work in the js engine. It;'s still prototypal inheritance
+	 
+	 ##Initialization
+	  - Array literal []
+	  - object literal {}
+	  
