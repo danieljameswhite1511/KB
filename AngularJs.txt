@@ -96,3 +96,16 @@ Contollers
 	 - this includes $scope but each contoller has it's own child scope that inherit from the root $scope object
 	 
 	
+
+  #Bootstrapping AngularJS
+   - ngApp
+    - The injector for Dependency injection is created
+    - The injector creates the root scope that will become the context of the applications
+    - Angular js will them compile teh DOM starting form ngApp root element then processing directives and bindings found
+    - Once bootsrapped the angularjs will wait for incoming browser events(mouse clicks, key presses or incoming http requests) that might change the model and if so angular will reflect them in the views by updating teh bindings
+
+  
+
+  
+#New angularjs project
+ - app/lib/
